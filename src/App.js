@@ -1,24 +1,25 @@
 /* import React from 'react';
 :react 17버전부터는 위에 import를 명시 안해도 됨*/
-import {BrowserRouter, Routes, Route} from "react-router-dom";//라우터 선언
 
 import './App.css';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-import Header from './components/Header';
-
-
-
+import Header from './components/Header.jsx'
+import Home from './pages/Home.jsx';
+import Projects from './pages/Projects.jsx';
+import About from './pages/About.jsx';
 
 function App() {
 
   return (
-    <BrowserRouter>
+   <Router>
+    <Header/>
       <Routes>
-        <Route path="/" element={<Header/>}>
-        {/* Route 컴포넌트들 넣어주기 */}
-        </Route>
+        <Route path = "/" element = {<Home/>}/>
+        <Route path = "/Projects" element = {<Projects/>}/>
+        <Route path = "/About" element = {<About/>}/>
       </Routes>
-    </BrowserRouter>
+   </Router>
   );
 }
 
